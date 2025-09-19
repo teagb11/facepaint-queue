@@ -1,0 +1,36 @@
+
+import React, { useState } from "react";
+
+function App() {
+  // Example queue state
+  const [queue, setQueue] = useState([
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+  ]);
+
+  // Example function to add someone to the queue
+  const addPerson = () => {
+    const name = prompt("Enter name:");
+    if (name) {
+      const nextId = queue.length ? queue[queue.length - 1].id + 1 : 1;
+      setQueue([...queue, { id: nextId, name }]);
+    }
+  };
+
+  return (
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <h1>Facepaint Queue</h1>
+      <button onClick={addPerson}>Add Person</button>
+      <ul>
+        {queue.map((person) => (
+          <li key={person.id}>
+            {person.id}. {person.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
