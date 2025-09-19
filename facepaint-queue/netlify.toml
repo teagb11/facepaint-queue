@@ -1,7 +1,8 @@
 [build]
+  base    = "facepaint-queue"
   command = "npm install --legacy-peer-deps && npm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
